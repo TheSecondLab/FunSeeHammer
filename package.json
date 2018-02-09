@@ -1,0 +1,24 @@
+{
+  "name": "funsee-hammer",
+  "version": "1.0.0",
+  "description": "FunSeeHammer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSecondLab/FunSeeHammer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheSecondLab/FunSeeHammer/issues"
+  },
+  "homepage": "https://github.com/TheSecondLab/FunSeeHammer#readme",
+  "dependencies": {
+    "babylon": "^6.18.0",
+    "yargs": "^11.0.0"
+  }
+}
