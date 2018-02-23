@@ -2,13 +2,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const merge = require('webpack-merge');
 const path = require('path');
-const webpack = require('webpack');
 
 const webpackBase = require('./webpack.base');
 
 // for test
 global.__ROOT_PATH__ = global.__ROOT_PATH__ || '/Users/robin/Documents/project/FS/FunSeeBoilerplate';
-global.__FS_PATH__ = global.__FS_PATH__ || '/Users/robin/Documents/project/FS/FunSee'
+global.__FS_PATH__ = global.__FS_PATH__ || '/Users/robin/Documents/project/FS/FunSee';
 
 module.exports = merge(webpackBase, {
   devtool: 'source-map',

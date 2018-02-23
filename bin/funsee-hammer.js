@@ -11,9 +11,9 @@ yargs
     yargs
       .positional('filename', {
         describe: 'dev: startup file',
-        type: 'string',
+        type: 'string'
       })
       .version(false);
   }, (argv) => {
     require('../lib/startUp/dev')(argv);
-  }).argv
+  }).argv;
