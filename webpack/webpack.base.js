@@ -10,6 +10,9 @@ module.exports = {
           plugins: [require('babel-plugin-add-module-exports')]
         }
       }
+    }, {
+      test: /\.html$/,
+      loader: 'html-loader'
     }]
   }
 };
