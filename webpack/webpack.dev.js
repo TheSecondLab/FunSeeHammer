@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
@@ -33,7 +34,8 @@ module.exports = merge(webpackBase, {
     new webpack.DefinePlugin({
       __WEBPACK_REPLACE_CLIENT_ROUTER__: JSON.stringify(clientRouters),
       __WEBPACK_REPLACE_ROOT_PATH__: JSON.stringify(global.__ROOT_PATH__),
-      __WEBPACK_REPLACE_SHARDED_RELATIVE_PATH__: JSON.stringify(sharedRelativePath)
+      __WEBPACK_REPLACE_SHARDED_RELATIVE_PATH__: JSON.stringify(sharedRelativePath),
+      __WEBPACK_REPLACE_IS_PRD__: JSON.stringify(process.env.NODE_ENV !== 'dev')
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(global.__ROOT_PATH__, './views/default.html'),
