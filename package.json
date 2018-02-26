@@ -1,6 +1,6 @@
 {
   "name": "funsee-hammer",
-  "version": "1.0.16",
+  "version": "1.0.20",
   "description": "FunSeeHammer",
   "main": "./bin/funsee-hammer.js",
   "bin": "./bin/funsee-hammer.js",
@@ -36,6 +36,7 @@
     "html-webpack-plugin": "^2.30.1",
     "koa-webpack": "^2.0.3",
     "koa-webpack-dev-middleware": "^2.0.2",
+    "rd": "^1.1.2",
     "webpack": "^3.11.0",
     "webpack-merge": "^4.1.1",
     "yargs": "^11.0.0"
