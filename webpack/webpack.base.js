@@ -7,7 +7,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['env', 'react'],
-          plugins: [require('babel-plugin-add-module-exports')]
+          plugins: [require('babel-plugin-add-module-exports'), require('babel-plugin-transform-runtime')]
         }
       }
     }, {
