@@ -16,4 +16,7 @@ yargs
       .version(false);
   }, (argv) => {
     require('../lib/startUp/dev')(argv);
+  })
+  .command('build', 'run the server', (argv) => {
+    require('../lib/startUp/build')(argv);
   }).argv;
