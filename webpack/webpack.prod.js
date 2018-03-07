@@ -16,7 +16,10 @@ const getExternals = () => fs.readdirSync(path.resolve(__dirname, '../../FunSeeB
   }, {});
 
 const clientConfig = merge(baseConfig, {
-  entry: `${global.__FS_PATH__}/lib/client/index.js`,
+  entry: [
+    'babel-polyfill',
+    `${global.__FS_PATH__}/lib/client/index.js`
+  ],
   output: {
     filename: '[name].[hash:8].js',
     path: path.resolve(global.__ROOT_PATH__, './dist'),
@@ -30,7 +33,10 @@ const clientConfig = merge(baseConfig, {
 });
 
 const serverConfig = merge(baseConfig, {
-  entry: [path.resolve(global.__ROOT_PATH__, 'funsee.js')],
+  entry: [
+    'babel-polyfill',
+    path.resolve(global.__ROOT_PATH__, 'funsee.js')
+  ],
   output: {
     filename: 'server.js',
     path: path.resolve(global.__ROOT_PATH__, './dist'),

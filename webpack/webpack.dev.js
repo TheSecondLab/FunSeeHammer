@@ -4,6 +4,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
+const fs = require('fs');
 
 const webpackBase = require('./webpack.base');
 
@@ -22,7 +23,8 @@ global.__FS_PATH__ = global.__FS_PATH__ || '/Users/robin/Documents/project/FS/Fu
 const clientConfig = merge(webpackBase, {
   devtool: 'source-map',
   entry: [
-    path.relative(global.__ROOT_PATH__, `${global.__FS_PATH__}/lib/client/index.js`)
+    'babel-polyfill',
+    `${global.__FS_PATH__}/lib/client/index.js`
   ],
   output: {
     filename: 'test.js',
@@ -43,6 +45,7 @@ const clientConfig = merge(webpackBase, {
 });
 
 const serverConfig = merge(webpackBase, {
+  name: 'serverConfig',
   entry: [path.resolve(global.__ROOT_PATH__, 'funsee.js')],
   output: {
     filename: 'server.js',
@@ -58,4 +61,5 @@ const serverConfig = merge(webpackBase, {
 });
 
 
-module.exports = [clientConfig, serverConfig];
+// module.exports = [clientConfig, serverConfig];
+module.exports = clientConfig;
