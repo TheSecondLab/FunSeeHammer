@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const baseConfig = require('./webpack.base');
 
-const getExternals = () => fs.readdirSync(path.resolve(__dirname, '../../FunSeeBoilerplate/node_modules'))
+const getExternals = () => fs.readdirSync(path.resolve(__dirname, path.resolve(global.__ROOT_PATH__, 'node_modules/')))
   .filter(filename => !filename.includes('.bin'))
   .filter(filename => !filename.includes('funsee'))
   .reduce((externals, filename) => {
