@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const { combineClientRouter, combineClientReducer, combineSaga } = require('../lib/tool/combine');
 
+// collect client router、reducer、saga config
 const clientRouters = combineClientRouter(`${global.__ROOT_PATH__}/shared`);
 const clientReducers = combineClientReducer(`${global.__ROOT_PATH__}/shared`);
 const clientSagas = combineSaga(`${global.__ROOT_PATH__}/shared`);
@@ -12,6 +13,7 @@ global.__CLIENT_ROUTER__ = clientRouters;
 global.__CLIENT_REDUCER__ = clientReducers;
 global.__CLIENT_SAGA__ = clientSagas;
 
+// trace FunSee's folder
 const sharedRelativePath = path.relative(`${global.__FS_PATH__}/lib/tool/clientRouterCreator.js`, `${global.__ROOT_PATH__}/shared`).replace('../', '');
 global.__RELATIVE_PATH__ = sharedRelativePath;
 
@@ -35,6 +37,8 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin([path.resolve(global.__ROOT_PATH__, 'dist')]),
+
+    // 允许创建一个在编译时可以配置的全局常量
     new webpack.DefinePlugin({
       'global.__CLIENT_ROUTER__': JSON.stringify(clientRouters),
       'global.__CLIENT_REDUCER__': JSON.stringify(clientReducers),
