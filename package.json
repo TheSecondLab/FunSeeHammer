@@ -26,29 +26,25 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
-    "babel-runtime": "^6.26.0",
-    "babylon": "^6.18.0",
     "clean-webpack-plugin": "^0.1.18",
-    "eslint": "^4.18.1",
-    "eslint-config-funsee": "0.0.2",
     "git-clone": "^0.1.0",
     "html-loader": "^0.5.5",
     "html-webpack-harddisk-plugin": "^0.1.0",
     "html-webpack-plugin": "^2.30.1",
     "koa-webpack": "^2.0.3",
-    "koa-webpack-dev-middleware": "^2.0.2",
     "ora": "^2.0.0",
     "rd": "^1.1.2",
-    "redux-saga": "^0.16.0",
     "require-from-string": "^2.0.1",
-    "uglifyjs-webpack-plugin": "^1.2.2",
     "webpack": "^3.11.0",
     "webpack-merge": "^4.1.1",
     "yargs": "^11.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-funsee": "0.0.2"
   }
 }
