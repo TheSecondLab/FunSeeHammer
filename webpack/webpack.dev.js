@@ -22,7 +22,7 @@ const clientConfig = merge(webpackBase, {
   devtool: 'source-map',
   entry: [
     'babel-polyfill',
-    `${global.__FS_PATH__}/lib/client/index.js`
+    `${global.__FS_PATH__}/dist/client/index.js`
   ],
   output: {
     filename: 'test.js',
