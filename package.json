@@ -29,6 +29,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "clean-webpack-plugin": "^0.1.18",
     "git-clone": "^0.1.0",
@@ -36,13 +37,13 @@
     "html-webpack-harddisk-plugin": "^0.1.0",
     "html-webpack-plugin": "^2.30.1",
     "koa-webpack": "^2.0.3",
+    "nodemon": "^1.17.1",
     "ora": "^2.0.0",
     "rd": "^1.1.2",
     "require-from-string": "^2.0.1",
     "webpack": "^3.11.0",
     "webpack-merge": "^4.1.1",
-    "yargs": "^11.0.0",
-    "nodemon": "^1.17.1"
+    "yargs": "^11.0.0"
   },
   "devDependencies": {
     "eslint": "^4.18.1",
