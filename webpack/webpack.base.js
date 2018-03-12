@@ -25,7 +25,7 @@ module.exports = {
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['env', 'react'],
+          presets: ['env', 'react', 'stage-0'],
           plugins: [
             require('babel-plugin-add-module-exports'),
             require('babel-plugin-transform-export-extensions'),
