@@ -16,8 +16,8 @@ yargs
         type: 'string'
       })
       .version(false);
-  }, (argv) => {
-    require('../lib/startUp/dev')(argv);
+  }, () => {
+    require('../lib/startUp/nodemon');
   })
   .command('build', 'run the server', (argv) => {
     require('../lib/startUp/build')(argv);
