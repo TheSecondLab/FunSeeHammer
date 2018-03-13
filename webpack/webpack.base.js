@@ -2,8 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const babelPresets = process.env.DEPLOY_ENV !== 'prd' ? ['react-hmre'] : [];
-
 const { combineClientRouter, combineClientReducer, combineSaga } = require('../lib/tool/combine');
 
 // collect client router、reducer、saga config
@@ -31,11 +29,7 @@ module.exports = {
           plugins: [
             require('babel-plugin-add-module-exports'),
             require('babel-plugin-transform-export-extensions'),
-            require('babel-plugin-transform-object-rest-spread')],
-          query: {
-            presets: babelPresets,
-            plugins: [['import', { libraryName: 'antd', style: true }]]
-          }
+            require('babel-plugin-transform-object-rest-spread')]
         }
       }
       // loader: 'babel-loader'
