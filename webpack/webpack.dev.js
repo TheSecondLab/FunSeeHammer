@@ -39,7 +39,37 @@ const clientConfig = merge(webpackBase, {
       alwaysWriteToDisk: true
     }),
     new HtmlWebpackHarddiskPlugin()
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              module: true,
+              localIdentName: '[path][name]__[local]'
+            }
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              module: true
+            }
+          }
+        ]
+      }, {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
+      }, {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?importLoaders=1'
+      }
+    ]
+  }
 });
 
 // const serverConfig = merge(webpackBase, {
