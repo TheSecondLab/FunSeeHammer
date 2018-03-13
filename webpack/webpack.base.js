@@ -29,7 +29,9 @@ module.exports = {
           plugins: [
             require('babel-plugin-add-module-exports'),
             require('babel-plugin-transform-export-extensions'),
-            require('babel-plugin-transform-object-rest-spread')]
+            require('babel-plugin-transform-object-rest-spread'),
+            ['import', { libraryName: 'antd', style: 'css' }]
+          ]
         }
       }
       // loader: 'babel-loader'
