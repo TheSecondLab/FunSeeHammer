@@ -5,16 +5,16 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { combineClientRouter, combineClientReducer, combineSaga } = require('../lib/tool/combine');
 
 // collect client router、reducer、saga config
-const clientRouters = combineClientRouter(`${global.__ROOT_PATH__}/shared`);
-const clientReducers = combineClientReducer(`${global.__ROOT_PATH__}/shared`);
-const clientSagas = combineSaga(`${global.__ROOT_PATH__}/shared`);
+const clientRouters = combineClientRouter(`${global.__ROOT_PATH__}/shared/page`);
+const clientReducers = combineClientReducer(`${global.__ROOT_PATH__}/shared/page`);
+const clientSagas = combineSaga(`${global.__ROOT_PATH__}/shared/page`);
 
 global.__CLIENT_ROUTER__ = clientRouters;
 global.__CLIENT_REDUCER__ = clientReducers;
 global.__CLIENT_SAGA__ = clientSagas;
 
 // trace FunSee's folder
-const sharedRelativePath = path.relative(`${global.__FS_PATH__}/lib/tool/clientRouterCreator.js`, `${global.__ROOT_PATH__}/shared`).replace('../', '');
+const sharedRelativePath = path.relative(`${global.__FS_PATH__}/lib/tool/clientRouterCreator.js`, `${global.__ROOT_PATH__}/shared/page`).replace('../', '');
 global.__RELATIVE_PATH__ = sharedRelativePath;
 
 module.exports = {
