@@ -1,6 +1,6 @@
 {
   "name": "funsee-hammer",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "FunSeeHammer",
   "main": "./bin/funsee-hammer.js",
   "bin": "./bin/funsee-hammer.js",
@@ -46,6 +46,7 @@
     "postcss-loader": "^2.1.1",
     "rd": "^1.1.2",
     "require-from-string": "^2.0.1",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "webpack": "^3.11.0",
