@@ -23,6 +23,7 @@ yargs
     require('../lib/startUp/build')(argv);
   })
   .command('create [projectName]', 'create a project boilerplate', (_yargs) => {
+    
     _yargs
       .positional('projectName', {
         describe: 'project name, which will the dir name for your project',
