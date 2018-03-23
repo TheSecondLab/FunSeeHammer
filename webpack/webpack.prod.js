@@ -2,6 +2,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const baseConfig = require('./webpack.base');
 
@@ -13,10 +14,15 @@ const getExternals = () => fs.readdirSync(path.resolve(__dirname, path.resolve(g
     return externals;
   }, {});
 
+const extractCss = new ExtractTextPlugin('[name].[contenthash:8]-css.css', { allChunks: true });
+const extractLess = new ExtractTextPlugin('[name].[contenthash:8]-less.css', { allChunks: true });
+const extractScss = new ExtractTextPlugin('[name].[contenthash:8]-scss.css', { allChunks: true });
+
+
 const clientConfig = merge(baseConfig, {
   entry: [
     'babel-polyfill',
-    `${global.__FS_PATH__}/lib/client/index.js`
+    `${global.__FS_PATH__}/dist/client/index.js`
   ],
   output: {
     filename: '[name].[hash:8].js',
@@ -26,8 +32,44 @@ const clientConfig = merge(baseConfig, {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(global.__ROOT_PATH__, './views/default.html')
-    })
-  ]
+    }),
+    extractCss,
+    extractLess,
+    extractScss
+  ],
+  module: {
+    rules: [{
+      test: /\.scss$/,
+      use: extractScss.extract({
+        fallback: 'style-loader',
+        use: [{
+          loader: 'css-loader',
+          options: {
+            localIdentName: '[hash:base64:8]',
+            minimize: true,
+            module: true
+          }
+        }, {
+          loader: 'sass-loader',
+          options: {
+            module: true
+          }
+        }]
+      })
+    }, {
+      test: /\.less$/,
+      use: extractLess.extract({
+        fallback: 'style-loader',
+        use: ['css-loader', 'less-loader']
+      })
+    }, {
+      test: /\.css$/,
+      use: extractLess.extract({
+        fallback: 'style-loader',
+        use: ['css-loader']
+      })
+    }]
+  }
 });
 
 const serverConfig = merge(baseConfig, {
@@ -45,7 +87,31 @@ const serverConfig = merge(baseConfig, {
     __filename: true,
     __dirname: true
   },
-  externals: getExternals()
+  externals: getExternals(),
+  module: {
+    rules: [{
+      test: /\.scss$/,
+      use: [{
+        loader: 'css-loader/locals',
+        options: {
+          localIdentName: '[hash:base64:8]',
+          minimize: true,
+          module: true
+        }
+      }, {
+        loader: 'sass-loader',
+        options: {
+          module: true
+        }
+      }]
+    }, {
+      test: /\.less$/,
+      use: ['css-loader/locals', 'less-loader']
+    }, {
+      test: /\.css$/,
+      use: ['css-loader/locals']
+    }]
+  }
 });
 
 

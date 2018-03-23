@@ -1,6 +1,6 @@
 {
   "name": "funsee-hammer",
-  "version": "1.1.5",
+  "version": "1.1.8",
   "description": "FunSeeHammer",
   "main": "./bin/funsee-hammer.js",
   "bin": "./bin/funsee-hammer.js",
@@ -34,6 +34,7 @@
     "clean-webpack-plugin": "^0.1.18",
     "css-loader": "^0.28.10",
     "css-modules-require-hook": "^4.2.3",
+    "extract-text-webpack-plugin": "^3.0.2",
     "git-clone": "^0.1.0",
     "html-loader": "^0.5.5",
     "html-webpack-harddisk-plugin": "^0.1.0",

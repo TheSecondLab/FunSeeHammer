@@ -80,22 +80,4 @@ const clientConfig = merge(webpackBase, {
   }
 });
 
-// const serverConfig = merge(webpackBase, {
-//   name: 'serverConfig',
-//   entry: [path.resolve(global.__ROOT_PATH__, 'funsee.js')],
-//   output: {
-//     filename: 'server.js',
-//     path: path.resolve(global.__ROOT_PATH__, './dist'),
-//     libraryTarget: 'commonjs2'
-//   },
-//   target: 'node',
-//   node: {
-//     __filename: true,
-//     __dirname: true
-//   },
-//   externals: getExternals()
-// });
-
-
-// module.exports = [clientConfig, serverConfig];
 module.exports = clientConfig;
