@@ -2,21 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const merge = require('webpack-merge');
 const path = require('path');
-// const fs = require('fs');
 
 const webpackBase = require('./webpack.base');
-
-// const getExternals = () => fs.readdirSync(path.resolve(__dirname, '../../FunSeeBoilerplate/node_modules'))
-//   .filter(filename => !filename.includes('.bin'))
-//   .filter(filename => !filename.includes('funsee'))
-//   .reduce((externals, filename) => {
-//     externals[filename] = `commonjs ${filename}`;
-//     return externals;
-//   }, {});
-
-// for test
-// global.__ROOT_PATH__ = global.__ROOT_PATH__ || '/Users/robin/Documents/project/FS/FunSeeBoilerplate';
-// global.__FS_PATH__ = global.__FS_PATH__ || '/Users/robin/Documents/project/FS/FunSee';
 
 const clientConfig = merge(webpackBase, {
   devtool: 'source-map',

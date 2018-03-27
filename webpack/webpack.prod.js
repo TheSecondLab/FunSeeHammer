@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 const baseConfig = require('./webpack.base');
 
@@ -30,12 +31,23 @@ const clientConfig = merge(baseConfig, {
     publicPath: '/'
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks(module) {
+        return module.context && module.context.indexOf('node_modules') !== -1;
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      minChunks: Infinity
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(global.__ROOT_PATH__, './views/default.html')
     }),
     extractCss,
     extractLess,
-    extractScss
+    extractScss,
+    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') })
   ],
   module: {
     rules: [{
