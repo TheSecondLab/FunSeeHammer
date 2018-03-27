@@ -5,8 +5,6 @@
 const yargs = require('yargs');
 const { version } = require('../package.json');
 
-// const { argv } = yargs;
-
 yargs
   .version(version)
   .command('dev [filename]', 'run the server', (_yargs) => {

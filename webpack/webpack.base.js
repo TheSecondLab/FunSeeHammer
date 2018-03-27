@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const { combineClientRouter, combineClientReducer, combineSaga } = require('../lib/tool/combine');
 
@@ -48,9 +47,6 @@ module.exports = {
     }]
   },
   plugins: [
-    new CleanWebpackPlugin([path.resolve(global.__ROOT_PATH__, 'dist')]),
-
-    // 允许创建一个在编译时可以配置的全局常量
     new webpack.DefinePlugin({
       'global.__CLIENT_ROUTER__': JSON.stringify(clientRouters),
       'global.__CLIENT_REDUCER__': JSON.stringify(clientReducers),
@@ -60,8 +56,7 @@ module.exports = {
       'global.__ROOT_PATH__': JSON.stringify(global.__ROOT_PATH__),
       'global.__RELATIVE_PATH__': JSON.stringify(sharedRelativePath),
       'global.__COMMON_RELATIVE_PATH__': JSON.stringify(sharedCommonRelativePath),
-      __WEBPACK_REPLACE_IS_PRD__: JSON.stringify(process.env.NODE_ENV !== 'dev'),
-      'global.test': JSON.stringify('webpack test')
+      __WEBPACK_REPLACE_IS_PRD__: JSON.stringify(process.env.NODE_ENV !== 'dev')
     })
   ]
 };
