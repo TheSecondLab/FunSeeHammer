@@ -39,17 +39,7 @@ const clientConfig = merge(webpackBase, {
               module: true,
               localIdentName: '[path][name]__[local]'
             }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              // set the config file path  of postcss
-              config: {
-                path: path.resolve(global.__FS_PATH__, '../funsee-hammer/postcss.config.js')
-              }
-            }
-          },
-          {
+          }, {
             loader: 'sass-loader',
             options: {
               module: true
@@ -58,10 +48,17 @@ const clientConfig = merge(webpackBase, {
         ]
       }, {
         test: /\.less$/,
-        loader: 'style-loader!css-loader!less-loader'
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader'
+        ]
       }, {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader?importLoaders=1'
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   }
