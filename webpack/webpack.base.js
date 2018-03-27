@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const { combineClientRouter, combineClientReducer, combineSaga } = require('../lib/tool/combine');
 
@@ -41,7 +40,6 @@ module.exports = {
     }]
   },
   plugins: [
-    new CleanWebpackPlugin([path.resolve(global.__ROOT_PATH__, 'dist')]),
     new webpack.DefinePlugin({
       'global.__CLIENT_ROUTER__': JSON.stringify(clientRouters),
       'global.__CLIENT_REDUCER__': JSON.stringify(clientReducers),

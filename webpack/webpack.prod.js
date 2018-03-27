@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const baseConfig = require('./webpack.base');
 
@@ -31,6 +32,15 @@ const clientConfig = merge(baseConfig, {
     publicPath: '/'
   },
   plugins: [
+    new UglifyJSPlugin({
+      uglifyOptions: {
+        comments: false,
+        compress: {
+          warnings: false,
+          drop_console: true
+        }
+      }
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks(module) {
