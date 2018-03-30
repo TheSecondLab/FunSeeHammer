@@ -54,7 +54,7 @@ const clientConfig = merge(webpackBase, {
           'less-loader'
         ]
       }, {
-        test: /\.less$/,
+        test: /\.css$/,
         use: [
           'style-loader',
           'css-loader'
