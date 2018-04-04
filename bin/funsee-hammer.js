@@ -3,6 +3,9 @@
 /* eslint no-unused-expressions: "off" */
 
 const yargs = require('yargs');
+const path = require('path');
+const { exec } = require('child_process');
+
 const { version } = require('../package.json');
 
 yargs
@@ -17,7 +20,15 @@ yargs
   }, () => {
     require('../lib/startUp/nodemon');
   })
-  .command('build', 'run the server', (argv) => {
+  .command('build', 'build the bundle', (argv) => {
     require('../lib/startUp/build')(argv);
+  })
+  .command('start', 'start the server', (argv) => {
+    const cmd = `node ${path.resolve(__dirname, '../lib/startUp/server')}`;
+    exec(cmd, (err, stdout, stderr) => {
+      console.log('err', err);
+      console.log('stdout', stdout);
+      console.log('stderr', stderr);
+    });
   })
   .argv;

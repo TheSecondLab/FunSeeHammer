@@ -54,6 +54,7 @@ module.exports = {
       'global.__CLIENT_SAGA__': JSON.stringify(clientSagas),
       'global.__COMMON_CLIENT_SAGA__': JSON.stringify(commonSagas),
       'global.__ROOT_PATH__': JSON.stringify(global.__ROOT_PATH__),
+      'global.__FS_PATH__': JSON.stringify(global.__FS_PATH__),
       'global.__RELATIVE_PATH__': JSON.stringify(sharedRelativePath),
       'global.__COMMON_RELATIVE_PATH__': JSON.stringify(sharedCommonRelativePath),
       __WEBPACK_REPLACE_IS_PRD__: JSON.stringify(process.env.NODE_ENV !== 'dev')
