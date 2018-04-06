@@ -4,7 +4,7 @@
 
 const yargs = require('yargs');
 const path = require('path');
-const { exec } = require('child_process');
+// const { exec } = require('child_process');
 
 const { version } = require('../package.json');
 
@@ -24,11 +24,12 @@ yargs
     require('../lib/startUp/build')(argv);
   })
   .command('start', 'start the server', (argv) => {
-    const cmd = `node ${path.resolve(__dirname, '../lib/startUp/server')}`;
-    exec(cmd, (err, stdout, stderr) => {
-      console.log('err', err);
-      console.log('stdout', stdout);
-      console.log('stderr', stderr);
-    });
+    // const cmd = `node ${path.resolve(__dirname, '../lib/startUp/server')}`;
+    // exec(cmd, (err, stdout, stderr) => {
+    //   console.log('err', err);
+    //   console.log('stdout', stdout);
+    //   console.log('stderr', stderr);
+    // });
+    require('../lib/startUp/server');
   })
   .argv;
