@@ -33,7 +33,7 @@ module.exports = {
         options: {
           presets: ['env', 'react'],
           plugins: [
-            require('babel-plugin-transform-decorators'),
+            require('babel-plugin-transform-decorators-legacy'),
             require('babel-plugin-add-module-exports'),
             require('babel-plugin-transform-export-extensions'),
             require('babel-plugin-transform-object-rest-spread'),
