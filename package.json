@@ -1,6 +1,6 @@
 {
   "name": "funsee-hammer",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "FunSeeHammer",
   "main": "./bin/funsee-hammer.js",
   "bin": "./bin/funsee-hammer.js",
