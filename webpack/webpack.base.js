@@ -4,11 +4,11 @@ const path = require('path');
 const { combineClientRouter, combineClientReducer, combineSaga } = require('../lib/tool/combine');
 
 // collect client router、reducer、saga config
-const clientRouters = combineClientRouter(`${global.__ROOT_PATH__}/shared/page`);
-const clientReducers = combineClientReducer(`${global.__ROOT_PATH__}/shared/page`);
-const commonReducers = combineClientReducer(`${global.__ROOT_PATH__}/shared`, 'page');
-const clientSagas = combineSaga(`${global.__ROOT_PATH__}/shared/page`);
-const commonSagas = combineSaga(`${global.__ROOT_PATH__}/shared`, 'page');
+const clientRouters = combineClientRouter(`${global.__ROOT_PATH__}${path.sep}shared${path.sep}page`);
+const clientReducers = combineClientReducer(`${global.__ROOT_PATH__}${path.sep}shared${path.sep}page`);
+const commonReducers = combineClientReducer(`${global.__ROOT_PATH__}${path.sep}shared`, 'page');
+const clientSagas = combineSaga(`${global.__ROOT_PATH__}${path.sep}shared${path.sep}page`);
+const commonSagas = combineSaga(`${global.__ROOT_PATH__}${path.sep}shared`, 'page');
 
 global.__CLIENT_ROUTER__ = clientRouters;
 global.__CLIENT_REDUCER__ = clientReducers;
@@ -17,10 +17,10 @@ global.__CLIENT_SAGA__ = clientSagas;
 global.__COMMON_CLIENT_SAGA__ = commonSagas;
 
 // trace FunSee's folder
-const sharedRelativePath = path.relative(`${global.__FS_PATH__}/lib/tool/clientRouterCreator.js`, `${global.__ROOT_PATH__}/shared/page`).replace('../', '');
+const sharedRelativePath = path.relative(`${global.__FS_PATH__}${path.sep}lib${path.sep}tool${path.sep}clientRouterCreator.js`, `${global.__ROOT_PATH__}${path.sep}shared${path.sep}page`).replace(`..${path.sep}`, '');
 global.__RELATIVE_PATH__ = sharedRelativePath;
 
-const sharedCommonRelativePath = path.relative(`${global.__FS_PATH__}/lib/tool/clientRouterCreator.js`, `${global.__ROOT_PATH__}/shared`).replace('../', '');
+const sharedCommonRelativePath = path.relative(`${global.__FS_PATH__}${path.sep}lib${path.sep}tool${path.sep}clientRouterCreator.js`, `${global.__ROOT_PATH__}${path.sep}shared`).replace(`..${path.sep}`, '');
 global.__COMMON_RELATIVE_PATH__ = sharedCommonRelativePath;
 
 module.exports = {
