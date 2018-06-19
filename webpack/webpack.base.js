@@ -17,10 +17,12 @@ global.__CLIENT_SAGA__ = clientSagas;
 global.__COMMON_CLIENT_SAGA__ = commonSagas;
 
 // trace FunSee's folder
-const sharedRelativePath = path.relative(`${global.__FS_PATH__}${path.sep}lib${path.sep}tool${path.sep}clientRouterCreator.js`, `${global.__ROOT_PATH__}${path.sep}shared${path.sep}page`).replace(`..${path.sep}`, '');
+let sharedRelativePath = path.relative(`${global.__FS_PATH__}${path.sep}lib${path.sep}tool${path.sep}clientRouterCreator.js`, `${global.__ROOT_PATH__}${path.sep}shared${path.sep}page`).replace(`..${path.sep}`, '');
+sharedRelativePath = sharedRelativePath.replace(/\\/g, '/');
 global.__RELATIVE_PATH__ = sharedRelativePath;
 
-const sharedCommonRelativePath = path.relative(`${global.__FS_PATH__}${path.sep}lib${path.sep}tool${path.sep}clientRouterCreator.js`, `${global.__ROOT_PATH__}${path.sep}shared`).replace(`..${path.sep}`, '');
+let sharedCommonRelativePath = path.relative(`${global.__FS_PATH__}${path.sep}lib${path.sep}tool${path.sep}clientRouterCreator.js`, `${global.__ROOT_PATH__}${path.sep}shared`).replace(`..${path.sep}`, '');
+sharedCommonRelativePath = sharedCommonRelativePath.replace(/\\/g, '/');
 global.__COMMON_RELATIVE_PATH__ = sharedCommonRelativePath;
 
 module.exports = {
