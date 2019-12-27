@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --max-old-space-size=10240
 
 /* eslint no-unused-expressions: "off" */
 
@@ -24,7 +24,7 @@ yargs
     require('../lib/startUp/build')(argv);
   })
   .command('start', 'start the server', (argv) => {
-    // const cmd = `node ${path.resolve(__dirname, '../lib/startUp/server')}`;
+    // const cmd = `node --max-old-space-size=10240 ${path.resolve(__dirname, '../lib/startUp/server')}`;
     // exec(cmd, (err, stdout, stderr) => {
     //   console.log('err', err);
     //   console.log('stdout', stdout);
